@@ -21,6 +21,7 @@ def partition(input, start, end):
             input[pointer_index], input[i] = input[i], input[pointer_index]
             pointer_index += 1
 
+    # Swapping pivot to the right position
     input[pointer_index], input[pivot] = input[pivot], input[pointer_index]
 
     return pointer_index
