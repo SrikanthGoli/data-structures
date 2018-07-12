@@ -61,7 +61,6 @@ class linked_list(object):
             print("Element not in the list.")
 
 
-
     # returns the elements in a list
     def display(self):
 
