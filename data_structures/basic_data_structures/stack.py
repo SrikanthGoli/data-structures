@@ -24,15 +24,3 @@ class stack(object):
     def display(self):
 
         print(self.stack)
-
-
-test = stack()
-test.push(10)
-test.push(20)
-test.push(30)
-test.push(40)
-test.push(50)
-test.push(60)
-test.pop()
-
-print(test.display())
