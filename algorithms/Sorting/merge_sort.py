@@ -1,5 +1,5 @@
 
-# Merge sort main function
+# Merge sort - O(nlogn)
 def merge_sort(input):
 
     size = len(input)
@@ -47,15 +47,13 @@ def merge(input, left, right):
 
     return input
 
-
 # Main function
 def main():
 
-    input = [5, 2, 1, 3, 6, 4, 212, 100, 34]
+    input = [5, 2, 1, 3, 6,
+             4, 212, 100, 34
+             ]
     merge_sort(input)
-
     print("Sorted List: ", input)
 
-
-# calling main
 main()

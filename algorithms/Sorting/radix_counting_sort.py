@@ -1,5 +1,5 @@
 
-# Radix sort
+# Radix sort - O(nk)
 def radix_sort(input):
 
     m = max(input)
@@ -11,7 +11,7 @@ def radix_sort(input):
 
     return None
 
-# using counting sort as sub routine
+# using counting sort as sub routine for sorting
 def counting_sort(input, exp):
 
     size = len(input)
@@ -35,14 +35,12 @@ def counting_sort(input, exp):
 
     return None
 
-
 def main():
 
-    input = [5, 2, 1, 3, 6, 4, 212, 100, 34]
+    input = [5, 2, 1, 3, 6,
+             4, 212, 100, 34
+             ]
     radix_sort(input)
-
     print("Sorted List: ", input)
 
-
-# calling main
 main()

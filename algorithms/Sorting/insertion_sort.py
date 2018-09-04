@@ -1,5 +1,5 @@
 
-# insertion sort
+# insertion sort - O(n^2)
 def insertion_sort(input):
 
     size = len(input)
@@ -11,15 +11,14 @@ def insertion_sort(input):
 
     return input
 
-
 # Main function
 def main():
 
-    input = [5, 2, 1, 3, 6, 4, 212, 100, 34]
+    input = [5, 2, 1, 3, 6,
+             4, 212, 100, 34
+             ]
     insertion_sort(input)
-
     print("Insertion Sort: ", input)
-
 
 # calling main
 main()

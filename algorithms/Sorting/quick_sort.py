@@ -1,5 +1,5 @@
 
-# Quick sort main function
+# Quick sort - O(nlogn)
 def quick_sort(input, start, end):
 
     # base case
@@ -26,15 +26,13 @@ def partition(input, start, end):
 
     return pointer_index
 
-
 # Main function
 def main():
 
-    input = [5, 2, 1, 3, 6, 4, 212, 100, 34]
+    input = [5, 2, 1, 3, 6,
+             4, 212, 100, 34
+             ]
     quick_sort(input, 0, len(input)-1)
-
     print("Quick Sort: ", input)
 
-
-# calling main
 main()

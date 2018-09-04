@@ -1,7 +1,9 @@
+# Queue Data Structure
+class Queue(object):
 
-class queue(object):
-
-    # Queue Data Structure with basic operations
+    """Queue data structure which provides
+    insertion & Deletion at constant time - O(1)
+    """
 
     def __init__(self):
 
@@ -30,4 +32,4 @@ class queue(object):
     # display's the queue
     def display(self):
 
-        return print(self.queue)
+        return self.queue

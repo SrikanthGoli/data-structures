@@ -1,11 +1,10 @@
 
-# selection sort
+# selection sort - O(n^2)
 def selection_sort(input):
 
     size = len(input)
 
     for i in range(size):
-
         # min element in each iteration
         min = i
 
@@ -25,6 +24,4 @@ def main():
 
     print("Selection Sort: ", input)
 
-
-# calling main
 main()

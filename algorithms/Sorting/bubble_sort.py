@@ -1,5 +1,5 @@
 
-# Bubble Sort
+# Bubble Sort - O(n^2)
 def buble_sort(input):
 
     size = len(input)
@@ -16,15 +16,14 @@ def buble_sort(input):
 
     return input
 
-
 # Main function
 def main():
 
-    input = [5, 2, 1, 3, 6, 4, 212, 100, 34]
+    input = [5, 2, 1, 3, 6,
+             4, 212, 100, 34
+             ]
     buble_sort(input)
-
     print("Bubble Sort: ", input)
-
 
 # calling main
 main()

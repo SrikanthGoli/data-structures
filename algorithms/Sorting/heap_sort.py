@@ -1,5 +1,5 @@
 
-# Heap Sort Main Function
+# Heap Sort Main Function - O(nlogn)
 def heap_sort(input, type = None):
 
     size = len(input) - 1
@@ -24,8 +24,7 @@ def heap_sort(input, type = None):
 
     return output
 
-
-# build max heaps
+# Builds max heaps
 def max_heapify(input, root, size):
 
     left_child = (root*2) + 1
@@ -66,9 +65,10 @@ def min_heapify(input, root, size):
 
 def main():
 
-    input = [5, 2, 1, 3, 6, 4, 212, 100, 34]
+    input = [5, 2, 1, 3, 6,
+             4, 212, 100, 34
+             ]
     print("Sorted List: ", heap_sort(input, "Min"))
-
 
 # calling main
 main()

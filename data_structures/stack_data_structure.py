@@ -1,6 +1,10 @@
 
 # Stack Data Structure
-class stack(object):
+class Stack(object):
+
+    """Stack data structure which provides
+    insertion & Deletion at constant time - O(1)
+    """
 
     def __init__(self):
 
