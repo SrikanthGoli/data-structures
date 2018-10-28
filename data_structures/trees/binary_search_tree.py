@@ -1,4 +1,5 @@
 # Implementing Binary Search Tree data structure
+
 class Node(object):
 
     def __init__(self, data = None):
@@ -6,6 +7,7 @@ class Node(object):
         self.left = None
         self.right = None
         self.parent = None
+
 
 class binarySearchTree(object):
 
@@ -88,25 +90,65 @@ class binarySearchTree(object):
 
         res = []
 
-        if root is not None:
-            res = self.inorderTraversal(root.left)
+        if root:
+            res = self.inorder_traversal(root.left)
             res.append(root.data)
-            res += self.inorderTraversal(root.right)
+            res += self.inorder_traversal(root.right)
 
         return res
 
+    def inorder_traversal_iterative(self):
+
+        """Traverses tree in in-order and returs elements in list - iterative approach"""
+        stack, res, curr_node = [], [], self.root
+
+        while True:
+            if curr_node:
+                stack.append(curr_node)
+                curr_node = curr_node.left
+            else:
+                if len(stack) == 0:
+                    break
+                curr_node = stack.pop()
+                res.append(curr_node.data)
+                curr_node = curr_node.right
+
+        return res
+
+
     def preorder_traversal(self, root):
 
-        """Travers the tree pre-order and returns the elements."""
+        """Travers the tree in pre-order and returns the elements"""
 
         res = []
 
         if root:
             res.append(root.data)
-            res += self.preorderTraversal(root.left)
-            res += self.preorderTraversal(root.right)
+            res += self.preorder_traversal(root.left)
+            res += self.preorder_traversal(root.right)
 
         return res
+
+    def preorder_traversal_iterative(self):
+
+        """Traverses the tree in pre-order and returns elements in iterative approach"""
+
+        stack, res = [], []
+        curr_node = self.root
+
+        stack.append(curr_node)
+
+        while stack:
+            p = stack.pop()
+            res.append(p.data)
+
+            if p.right:
+                stack.append(p.right)
+            if p.left:
+                stack.append(p.left)
+
+        return res
+
 
     def postorder_traversal(self, root):
 
@@ -115,9 +157,73 @@ class binarySearchTree(object):
         res = []
 
         if root:
-            res += self.postorderTraversal(root.left)
-            res += self.postorderTraversal(root.right)
+            res += self.postorder_traversal(root.left)
+            res += self.postorder_traversal(root.right)
             res.append(root.data)
+
+        return res
+
+    def postorder_traversal_iterative(self):
+
+        """Traverses tree in post-order form and returns elements - iterative approach"""
+        stack, res, curr_node = [], [], self.root
+
+        stack.append(curr_node)
+
+        while stack:
+            p = stack.pop()
+            res.append(p.data)
+
+            if p.left:
+                stack.append(p.left)
+            if p.right:
+                stack.append(p.right)
+
+        return res[::-1]
+
+    def level_order_traversal(self):
+
+        Q, res, curr_node = [], [], self.root
+        Q.append(curr_node)
+
+        while Q:
+            p = Q.pop(0)
+            res.append(p.data)
+
+            if p.left:
+                Q.append(p.left)
+            if p.right:
+                Q.append(p.right)
+
+        return res
+
+    def spiral_order_traversing(self):
+
+        s1, s2, res, curr_node = [], [], [], self.root
+
+        if curr_node is None:
+            return
+
+        s1.append(curr_node)
+
+        while s1 or s2:
+            while s1:
+                r = s1.pop()
+                res.append(r.data)
+
+                if r.left:
+                    s2.append(r.left)
+                if r.right:
+                    s2.append(r.right)
+
+            while s2:
+                r = s2.pop()
+                res.append(r.data)
+
+                if r.right:
+                    s1.append(r.right)
+                if r.left:
+                    s1.append(r.left)
 
         return res
 
@@ -174,7 +280,7 @@ class binarySearchTree(object):
         p = self.lookup(parent)
         c = self.lookup(child)
 
-        if p.parent == None:
+        if p.parent is None:
             self.root = c
         elif p.parent.left.data == p.data:
             p.parent.left = c
@@ -200,9 +306,10 @@ class binarySearchTree(object):
 
             if y.parent.data != data:
                 self.transplant(y.data, y.right.data)
-                rem.right = rem.right
+                y.right = rem.right
                 y.right.parent = y
 
             self.transplant(rem.data, y.data)
             y.left = rem.left
             y.left.parent = y
+
