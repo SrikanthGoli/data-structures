@@ -3,6 +3,8 @@ import sys
 
 class Vertex(object):
 
+    """Generates a new vertex in the Graph"""
+
     def __init__(self, n):
 
         self.name = n
@@ -18,6 +20,8 @@ class Vertex(object):
 
 
 class Graph(object):
+
+    """Generates graph with adjacent list"""
 
     vertices = {}
 
@@ -47,6 +51,9 @@ class Graph(object):
             print(key + str(self.vertices[key].neighbours) + "  " + str(self.vertices[key].dist))
 
     def bfs(self, s, d):
+
+        """Traverses graph using BFS and returns shortest path
+            between two nodes"""
 
         source_vertex = self.vertices[s]
 
@@ -83,6 +90,8 @@ class Graph(object):
         return s_path
 
     def dfs(self):
+
+        """Traverses Graph using DFS algorithm"""
 
         for v in self.vertices:
             v.color = "White"
